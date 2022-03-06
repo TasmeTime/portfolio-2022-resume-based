@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { IconType } from "react-icons";
-import { Colors } from "../Colors";
+import { Colors } from "../../Colors";
+import { motion } from "framer-motion";
 
 interface HeroLinkProps {
   Text: string;
@@ -16,7 +17,7 @@ interface IconHolderProps {
   bgColor: string;
 }
 
-const HeroLinkEl = styled.span<{
+const HeroLinkEl = styled(motion.span)<{
   bgColor?: string;
   color?: string;
 }>`
@@ -44,18 +45,36 @@ const IconHolder = styled.span<{
   background-color: ${(p) => (p.bgColor ? p.bgColor : Colors.PrimaryDark)};
 `;
 
-const TextHolder = styled.span`
+const TextHolder = styled(motion.span)`
   font-size: 2.5vw;
 `;
 
 export default function HeroLink(props: HeroLinkProps) {
   const { Text, Icon, Color, BgColor, IconBgColor, IconColor } = props;
   return (
-    <HeroLinkEl color={Color} bgColor={BgColor}>
+    <HeroLinkEl
+      color={Color}
+      bgColor={BgColor}
+      transition={{ duration: 0.5 }}
+      initial={{
+        opacity: 0,
+        y: 50,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+    >
       <IconHolder color={IconColor} bgColor={IconBgColor}>
         <Icon />
       </IconHolder>
-      <TextHolder>{Text}</TextHolder>
+      <TextHolder
+        exit={{ left: -200 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        {Text}
+      </TextHolder>
     </HeroLinkEl>
   );
 }
