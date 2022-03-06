@@ -1,14 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createGlobalStyle } from "styled-components";
+
+const GS = createGlobalStyle`
+  *{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+  }
+
+  html{
+    font-family: 'Poppins', sans-serif;
+  }
+`;
 
 ReactDOM.render(
   <React.StrictMode>
+    <GS />
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
