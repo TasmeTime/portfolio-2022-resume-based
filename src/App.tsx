@@ -4,6 +4,9 @@ import { Colors } from "./assets/Colors";
 import Hero from "./assets/components/Hero";
 import { AnimatePresence, motion } from "framer-motion";
 import Stacks from "./assets/components/Stacks";
+import Projects from "./assets/components/Project";
+import Education from "./assets/components/Education";
+import WorkExperience from "./assets/components/WorkExperience";
 const AppEl = styled.div`
   width: 100vw;
   height: 100vh;
@@ -20,6 +23,9 @@ function App() {
     <AppEl>
       <Hero />
       <Stacks />
+      <Projects />
+      <Education />
+      <WorkExperience />
     </AppEl>
   );
 }

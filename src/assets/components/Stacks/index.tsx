@@ -37,7 +37,6 @@ const AllStacks: Array<StackSliderItemProps> = [
 ];
 
 const StacksEl = styled.article`
-  min-height: 3000px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
