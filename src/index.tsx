@@ -14,6 +14,11 @@ const GS = createGlobalStyle`
   html{
     font-family: 'Poppins', sans-serif;
   }
+
+  a{
+    color:inherit;
+  }
+  
 `;
 
 ReactDOM.render(
