@@ -42,8 +42,15 @@ const TopContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 1rem;
   width: 100%;
+  @media ${Devices.Laptop} {
+    gap: 2rem;
+  }
+
+  @media ${Devices.LaptopL} {
+    gap: 3rem;
+  }
 `;
 const LeftSection = styled.div`
   display: flex;

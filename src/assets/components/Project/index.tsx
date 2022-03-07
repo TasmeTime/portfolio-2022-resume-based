@@ -1,56 +1,16 @@
 import styled from "styled-components";
+import { AllProjects } from "../../Data";
 import { Colors, Devices } from "../../Theme";
 import { WaterMark } from "../common/Watermark";
-import ProjectItem, { ProjectItemProps } from "./ProjectItem";
-const AllProjects: Array<ProjectItemProps> = [
-  {
-    Id: 1,
-    Title: "AkSeller",
-    Des: "CRM, Seller Dashboard, Admin Panel, and exclusive build-in shop",
-    Link: "akseller.ir",
-  },
-  {
-    Id: 2,
-    Title: "View360",
-    Des: "Online showcase of properties in 360 tours",
-    Link: "view360.ir",
-  },
-  {
-    Id: 3,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-  {
-    Id: 4,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-  {
-    Id: 5,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-  {
-    Id: 6,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-  {
-    Id: 7,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-];
+import ProjectItem from "./ProjectItem";
+
 const ProjectsEl = styled.article`
   background-color: ${Colors.Primary};
   width: 100%;
   border-radius: 0 0 0 0;
   min-height: 450px;
+  height: 100%;
+  flex: 1;
   display: flex;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -96,7 +56,7 @@ const ProjectsHolder = styled.div`
 export default function Projects() {
   return (
     <ProjectsEl>
-      <WaterMark bottom="0" right="-30%">
+      <WaterMark bottom="0" color={Colors.PrimaryFade} right="-30%">
         Projects
       </WaterMark>
       <TitleEl>Projects</TitleEl>

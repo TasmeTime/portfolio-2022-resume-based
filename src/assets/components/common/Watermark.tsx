@@ -19,8 +19,8 @@ export const WaterMark = styled.div<WaterMarkProps>`
   right: ${(p) => (p.right ? p.right : "")};
   z-index: ${(p) => (p.zIndex ? p.zIndex : "")};
   bottom: ${(p) => (p.bottom ? p.bottom : "")};
-  font-size: ${(p) => (p.fontSize ? p.fontSize : "10rem")};
+  font-size: ${(p) => (p.fontSize ? p.fontSize : "25vw")};
   font-weight: ${(p) => (p.fontWeight ? p.fontWeight : "bold")};
   transform: rotate(${(p) => (p.rotate ? p.rotate : "0")});
-  color: ${(p) => (p.color ? p.color : Colors.PrimaryFade)};
+  color: ${(p) => (p.color ? p.color : Colors.GrayFade)};
 `;
