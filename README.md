@@ -1,6 +1,7 @@
 # My New Resume Based Portfolio Site
 
 This is my latest portfolio website based on my resume.
+Live version: https://resume.m-azad.ir/
 
 I'm aiming to achive:
 
@@ -9,3 +10,5 @@ I'm aiming to achive:
 - achieve some kinda slider design for portfolio sections
 
 `this repo will get updated as i go forward`
+
+![portfolio-2022-resume-based](https://user-images.githubusercontent.com/19800339/157063206-dba79422-50d9-4daf-be69-c82fc3b7d340.png)
