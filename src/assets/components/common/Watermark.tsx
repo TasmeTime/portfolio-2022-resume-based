@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../Colors";
+import { Colors } from "../../Theme";
 export interface WaterMarkProps {
   top?: string;
   left?: string;

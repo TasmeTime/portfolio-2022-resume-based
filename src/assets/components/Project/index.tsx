@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../Colors";
+import { Colors } from "../../Theme";
 import { WaterMark } from "../common/Watermark";
 import ProjectItem, { ProjectItemProps } from "./ProjectItem";
 const AllProjects: Array<ProjectItemProps> = [

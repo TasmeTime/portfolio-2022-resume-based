@@ -6,7 +6,7 @@ import { FiYoutube } from "react-icons/fi";
 import HeroLink from "./HeroLink";
 import { HeroData } from "../../Data";
 import PortraitIms from "../../images/portrait.png";
-import { Colors } from "../../Colors";
+import { Colors } from "../../Theme";
 import { motion } from "framer-motion";
 
 const HeroEl = styled(motion.article)`

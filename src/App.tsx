@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Colors } from "./assets/Colors";
+import { Colors } from "./assets/Theme";
 import Hero from "./assets/components/Hero";
 import { AnimatePresence, motion } from "framer-motion";
 import Stacks from "./assets/components/Stacks";

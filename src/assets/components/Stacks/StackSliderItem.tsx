@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 import styled from "styled-components";
-import { Colors } from "../../Colors";
+import { Colors } from "../../Theme";
 export interface StackSliderItemProps {
   Id: number;
   Title: string;

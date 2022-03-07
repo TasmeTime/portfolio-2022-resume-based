@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IconType } from "react-icons";
-import { Colors } from "../../Colors";
+import { Colors } from "../../Theme";
 import { motion } from "framer-motion";
 
 interface HeroLinkProps {

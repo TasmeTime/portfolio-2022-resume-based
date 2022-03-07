@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../../Colors";
+import { Colors } from "../../../Theme";
 import StyledListItem, { StyledListItemProps } from "./StyledListItem";
 
 export interface StyledListProps {
