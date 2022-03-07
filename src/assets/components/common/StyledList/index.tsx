@@ -50,7 +50,6 @@ const ItemsHolder = styled.ul`
 
 export default function StyledList(props: StyledListProps) {
   const { Title, Items, IndPos, Watermark, WMProps } = props;
-  console.log(IndPos, IndPos === "right");
 
   return (
     <div>

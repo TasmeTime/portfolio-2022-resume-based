@@ -15,8 +15,6 @@ const ProjectsEl = styled.article`
   overflow-x: hidden;
   overflow-y: hidden;
   margin-top: 2rem;
-
-  /* flex-direction: column; */
   position: relative;
   z-index: 1;
   height: fit-content;
@@ -31,10 +29,8 @@ const ProjectsEl = styled.article`
 
 const TitleEl = styled.h3`
   font-size: 5vw;
-
   z-index: 1;
   writing-mode: vertical-rl;
-  /* text-orientation: upright; */
 `;
 
 const ProjectsHolder = styled.div`
@@ -73,8 +69,6 @@ export default function Projects() {
           );
         })}
       </ProjectsHolder>
-      {/* <ProjectsHolder>
-      </ProjectsHolder> */}
     </ProjectsEl>
   );
 }

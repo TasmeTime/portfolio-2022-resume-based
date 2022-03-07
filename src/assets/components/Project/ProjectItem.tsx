@@ -62,8 +62,6 @@ const TitleEl = styled.h5`
   @media ${Devices.Laptop} {
     font-size: 2.5vw;
   }
-  /* font-size: 5vw; */
-  /* font-size: 3vw; */
   font-size: 3.7vw;
 `;
 export default function ProjectItem(props: ProjectItemProps) {

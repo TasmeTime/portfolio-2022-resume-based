@@ -61,13 +61,6 @@ const LeftSection = styled.div`
 const Before = styled.h3`
   font-size: 4vw;
   color: ${Colors.Gray};
-  @media ${Devices.MobileL} {
-    /* font-size: 11vw; */
-  }
-
-  @media ${Devices.Tablet} {
-    /* font-size: 10vw; */
-  }
 `;
 const Name = styled.h1`
   font-size: 12vw;
@@ -96,7 +89,6 @@ const LinksContainer = styled.div`
   }
 
   @media ${Devices.Laptop} {
-    /* justify-content: center; */
     gap: 4rem;
   }
 `;
@@ -111,8 +103,6 @@ export default function Hero() {
           <After>{HeroData.After}</After>
         </LeftSection>
         <ImageContainer src={PortraitIms} alt="my portrait" />
-        {/* <img src={PortraitIms} alt="my portrait" /> */}
-        {/* </ImageContainer> */}
       </TopContainer>
       <LinksContainer>
         {/* <HeroLink Text="m-azad.ir" Icon={FaGlobeAsia} /> */}
