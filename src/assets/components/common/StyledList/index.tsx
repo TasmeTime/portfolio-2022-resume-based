@@ -13,21 +13,21 @@ const StyledListEl = styled.article`
   display: flex;
   flex-direction: column;
   /* padding: 2rem 1rem 2rem 3rem; */
-  padding: 2rem 2rem;
+  padding: 5vw 2rem 2rem 2rem;
   gap: 1rem;
 `;
 const Ind = styled.span<{ indRight?: boolean }>`
   position: absolute;
   ${(p) => (p.indRight ? "right:0;" : "left:0;")}
-  top: 2.15rem;
+  top: 5.5vw;
   border-radius: ${(p) => (p.indRight ? "5px 0 0 5px" : "0 5px 5px 0")};
   width: 2rem;
-  height: 1.5rem;
+  height: 6vw;
   background-color: ${Colors.Primary};
 `;
 const TitleEl = styled.h3<{ indRight?: boolean }>`
   color: ${Colors.Primary};
-  font-size: 1.3rem;
+  font-size: 5vw;
   ${(p) => (p.indRight ? "margin-left: auto;" : "")}
   ${(p) => (p.indRight ? "padding-right: 1rem;" : "padding-left: 1rem;")};
 `;

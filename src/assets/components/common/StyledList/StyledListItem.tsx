@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../../Theme";
+import { Colors, Devices } from "../../../Theme";
 
 export interface StyledListItemProps {
   Id: number;
@@ -35,12 +35,22 @@ const TitleEl = styled.h5`
   font-size: 1.1rem;
   font-weight: 600;
   flex: 1;
+  font-size: 3.5vw;
+
+  @media ${Devices.Tablet} {
+    font-size: 3vw;
+  }
 `;
 const DateHolder = styled.span`
   display: flex;
   gap: 0.25rem;
-  font-size: 1rem;
+
   font-weight: 500;
+  font-size: 3vw;
+
+  @media ${Devices.Tablet} {
+    font-size: 2.5vw;
+  }
 `;
 const Info = styled.div`
   display: flex;
@@ -50,10 +60,19 @@ const Info = styled.div`
   font-weight: 500;
 `;
 const SubTitleEl = styled.h6`
-  font-size: 1rem;
+  font-size: 2.7vw;
+
+  @media ${Devices.Tablet} {
+    font-size: 2.2vw;
+  }
   font-weight: 500;
 `;
-const DesEl = styled.p``;
+const DesEl = styled.p`
+  @media ${Devices.Tablet} {
+    font-size: 2.2vw;
+  }
+  font-weight: 500;
+`;
 
 export default function StyledListItem(props: StyledListItemProps) {
   const { Id, Title, SubTitle, Des, From, To, TillPresent } = props;
