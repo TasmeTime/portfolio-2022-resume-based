@@ -18,11 +18,11 @@ interface IconHolderProps {
 }
 
 const HeroLinkEl = styled(motion.span)<{
-  bgColor?: string;
+  bgcolor?: string;
   color?: string;
 }>`
   color: ${(p) => (p.color ? p.color : Colors.White)};
-  background-color: ${(p) => (p.bgColor ? p.bgColor : Colors.Primary)};
+  background-color: ${(p) => (p.bgcolor ? p.bgcolor : Colors.Primary)};
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@ const HeroLinkEl = styled(motion.span)<{
 `;
 
 const IconHolder = styled.span<{
-  bgColor?: string;
+  bgcolor?: string;
   color?: string;
 }>`
   display: flex;
@@ -42,7 +42,7 @@ const IconHolder = styled.span<{
   padding: 0 0.3rem;
   border-radius: 5px;
   color: ${(p) => (p.color ? p.color : Colors.White)};
-  background-color: ${(p) => (p.bgColor ? p.bgColor : Colors.PrimaryDark)};
+  background-color: ${(p) => (p.bgcolor ? p.bgcolor : Colors.PrimaryDark)};
 `;
 
 const TextHolder = styled(motion.span)`
@@ -54,7 +54,7 @@ export default function HeroLink(props: HeroLinkProps) {
   return (
     <HeroLinkEl
       color={Color}
-      bgColor={BgColor}
+      bgcolor={BgColor}
       transition={{ duration: 0.5 }}
       initial={{
         opacity: 0,
@@ -65,7 +65,7 @@ export default function HeroLink(props: HeroLinkProps) {
         y: 0,
       }}
     >
-      <IconHolder color={IconColor} bgColor={IconBgColor}>
+      <IconHolder color={IconColor} bgcolor={IconBgColor}>
         <Icon />
       </IconHolder>
       <TextHolder

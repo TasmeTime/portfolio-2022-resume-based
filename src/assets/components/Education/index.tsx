@@ -1,64 +1,25 @@
-import styled from "styled-components";
-import { Colors } from "../../Colors";
-import { WaterMark } from "../common/Watermark";
-import EducationListItem, { EducationListItemProps } from "./EducationListItem";
+import StyledList from "../common/StyledList";
+import { StyledListItemProps } from "../common/StyledList/StyledListItem";
 
-const EducationList: Array<EducationListItemProps> = [
+const EducationList: Array<StyledListItemProps> = [
   {
     Id: 1,
-    Location: "Mollassadra Technical College",
-    Title: "Associate of Software Engineering",
-    From: new Date(),
-    To: new Date(),
+    Title: "Mollassadra Technical College",
+    SubTitle: "Associate of Software Engineering",
+    From: new Date("2016"),
+    To: new Date("2018"),
     TillPresent: false,
   },
   {
     Id: 2,
-    Location: "Shamsipour Technical and Vocational College",
-    Title: "Bachelor of Software Engineering",
+    Title: "Shamsipour Technical and Vocational College",
+    SubTitle: "Bachelor of Software Engineering",
     Des: "Some des here",
-    From: new Date(),
+    From: new Date("2019"),
     TillPresent: true,
   },
 ];
 
-const EducationEl = styled.article`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem 2rem 3rem;
-  gap: 1rem;
-`;
-const Ind = styled.span`
-  position: absolute;
-  left: 0;
-  top: 2.15rem;
-  border-radius: 0 5px 5px 0;
-  width: 2rem;
-  height: 1.5rem;
-  background-color: ${Colors.Primary};
-`;
-const TitleEl = styled.h3`
-  color: ${Colors.Primary};
-`;
-const ItemsHolder = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
 export default function Education() {
-  return (
-    <EducationEl>
-      {/* <WaterMark color={Colors.GrayFade}>Education</WaterMark> */}
-      <Ind />
-      <TitleEl>Education</TitleEl>
-      <ItemsHolder>
-        {EducationList.map((edu) => {
-          return <EducationListItem key={edu.Id} {...edu} />;
-        })}
-      </ItemsHolder>
-    </EducationEl>
-  );
+  return <StyledList Title="Education" IndPos="left" Items={EducationList} />;
 }
