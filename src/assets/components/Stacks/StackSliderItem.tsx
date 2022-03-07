@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 import styled from "styled-components";
-import { Colors } from "../../Theme";
+import { Colors, Devices } from "../../Theme";
 export interface StackSliderItemProps {
   Id: number;
   Title: string;
@@ -15,21 +15,46 @@ const StackSliderItemEl = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 6rem;
-  min-height: 6rem;
-  gap: 0.5rem;
+  text-align: center;
+  /* max-width: 35vw; */
+  /* max-height: 30vw; */
+  min-width: 30vw;
+  min-height: 30vw;
+  gap: 1vh;
   color: ${Colors.Gray};
   background-color: ${Colors.PrimaryBg};
   border-radius: 10px;
+  font-size: 15vw;
   border: 1px solid ${Colors.StackSliderItemBorder};
 
-  svg {
-    font-size: 2.5rem;
+  h4 {
+    font-size: 4vw;
+  }
+
+  @media ${Devices.Tablet} {
+    min-width: 30vw;
+    min-height: 30vw;
+    svg {
+      font-size: 15vw;
+    }
+    h4 {
+      font-size: 4vw;
+    }
+  }
+
+  @media ${Devices.Laptop} {
+    min-width: 15vw;
+    min-height: 15vw;
+    svg {
+      font-size: 10vw;
+    }
+    h4 {
+      font-size: 2vw;
+    }
   }
 `;
 const TitleEl = styled.h4`
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 export default function StackSliderItem(props: StackSliderItemProps) {

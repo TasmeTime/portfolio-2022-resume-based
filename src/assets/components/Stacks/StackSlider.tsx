@@ -2,6 +2,7 @@ import { IconType } from "react-icons";
 import styled from "styled-components";
 import { SiNextdotjs } from "react-icons/si";
 import StackSliderItem, { StackSliderItemProps } from "./StackSliderItem";
+import { Devices } from "../../Theme";
 
 interface StackSliderProps {
   Title: string;
@@ -13,6 +14,10 @@ const StackSliderEl = styled.article`
 `;
 const TitleEl = styled.h3`
   margin-left: 2rem;
+  font-size: 7vw;
+  @media ${Devices.Laptop} {
+    font-size: 5vw;
+  }
 `;
 const ItemsHolder = styled.div`
   width: 100%;
@@ -20,7 +25,7 @@ const ItemsHolder = styled.div`
   display: flex;
   overflow-y: hidden;
   overflow-x: auto;
-  gap: 1rem;
+  gap: 7vw;
   scrollbar-width: 0;
 
   ::-webkit-scrollbar {
