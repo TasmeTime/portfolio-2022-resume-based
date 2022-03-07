@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../Theme";
+import { Colors, Devices } from "../../Theme";
 export interface ProjectItemProps {
   Id: number;
   Title: string;
@@ -8,17 +8,18 @@ export interface ProjectItemProps {
 }
 
 const ProjectItemEl = styled.article`
-  display: flex;
-  /* flex-direction: column; */
-  height: fit-content;
+  display: inline-flex;
   z-index: 1;
-  gap: 0.7rem;
+  gap: 2vw;
   color: ${Colors.White};
 `;
 const Ind = styled.span`
-  width: 0.5rem;
-  max-width: 0.7em;
-  height: 100%;
+  @media ${Devices.Laptop} {
+    width: 5vw;
+  }
+  width: 0.2rem;
+  max-width: 0.7rem;
+
   background-color: ${Colors.White};
   border-radius: 30px;
 `;
@@ -33,18 +34,41 @@ const TitleHolder = styled.div`
   align-items: center;
   gap: 0.5rem;
 `;
-const TitleEl = styled.h5`
-  font-size: 1.2rem;
+
+const LinkEl = styled.a`
+  @media ${Devices.Tablet} {
+    font-size: 2.5vw;
+  }
+  @media ${Devices.Laptop} {
+    font-size: 2vw;
+  }
+  text-decoration: none;
+  font-size: 3vw;
 `;
 const DesEl = styled.p`
+  @media ${Devices.Tablet} {
+    font-size: 2.2vw;
+  }
+  @media ${Devices.Laptop} {
+    font-size: 1.7vw;
+  }
   color: ${Colors.GrayDes};
+  font-size: 3vw;
 `;
-const LinkEl = styled.a`
-  text-decoration: none;
+const TitleEl = styled.h5`
+  @media ${Devices.Tablet} {
+    font-size: 3vw;
+  }
+  @media ${Devices.Laptop} {
+    font-size: 2.5vw;
+  }
+  /* font-size: 5vw; */
+  /* font-size: 3vw; */
+  font-size: 3.7vw;
 `;
-
 export default function ProjectItem(props: ProjectItemProps) {
   const { Id, Title, Des, Link } = props;
+
   return (
     <ProjectItemEl>
       <Ind />
