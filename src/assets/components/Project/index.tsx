@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../Colors";
+import { WaterMark } from "../common/Watermark";
 import ProjectItem, { ProjectItemProps } from "./ProjectItem";
 const AllProjects: Array<ProjectItemProps> = [
   {
@@ -50,20 +51,13 @@ const ProjectsHolder = styled.div`
   position: relative;
   z-index: 1;
 `;
-const WaterMark = styled.div`
-  position: absolute;
-  left: 0;
-  top: 20%;
-  font-size: 10rem;
-  font-weight: bold;
-  transform: rotate(20deg);
-  color: ${Colors.PrimaryFade};
-`;
 
 export default function Projects() {
   return (
     <ProjectsEl>
-      <WaterMark>Projects</WaterMark>
+      <WaterMark top="20%" rotate="20deg">
+        Projects
+      </WaterMark>
       <TitleEl>Projects</TitleEl>
       {AllProjects.map((p) => {
         return (
