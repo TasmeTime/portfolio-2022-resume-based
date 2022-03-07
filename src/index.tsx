@@ -9,6 +9,7 @@ const GS = createGlobalStyle`
     padding:0;
     margin:0;
     box-sizing:border-box;
+    transition: all 0.3s ease-out;
   }
 
   html{
