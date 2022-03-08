@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { IconType } from "react-icons";
 import styled from "styled-components";
 import { Colors, Devices } from "../../Theme";
@@ -10,7 +11,7 @@ export interface StackSliderItemProps {
   IconSize?: string;
 }
 
-const StackSliderItemEl = styled.div`
+const StackSliderItemEl = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,6 +22,7 @@ const StackSliderItemEl = styled.div`
   min-width: 30vw;
   min-height: 30vw;
   gap: 1vh;
+  padding: 0.5vw;
   color: ${Colors.Secondary};
   background-color: ${Colors.Primary};
   border-radius: 10px;
@@ -32,21 +34,21 @@ const StackSliderItemEl = styled.div`
   }
 
   @media ${Devices.Tablet} {
-    min-width: 30vw;
-    min-height: 30vw;
+    min-width: 20vw;
+    min-height: 20vw;
     svg {
-      font-size: 15vw;
+      font-size: 10vw;
     }
     h4 {
-      font-size: 4vw;
+      font-size: 2.7vw;
     }
   }
 
   @media ${Devices.Laptop} {
-    min-width: 15vw;
-    min-height: 15vw;
+    min-width: 13vw;
+    min-height: 13vw;
     svg {
-      font-size: 10vw;
+      font-size: 8vw;
     }
     h4 {
       font-size: 2vw;
@@ -60,7 +62,12 @@ const TitleEl = styled.h4`
 export default function StackSliderItem(props: StackSliderItemProps) {
   const { Id, Title, Icon, Color, BgColor, IconSize } = props;
   return (
-    <StackSliderItemEl>
+    <StackSliderItemEl
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 50, scale: 0.95 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.7, type: "tween" }}
+    >
       <Icon />
       <TitleEl>{Title}</TitleEl>
     </StackSliderItemEl>

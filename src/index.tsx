@@ -9,7 +9,7 @@ const GS = createGlobalStyle`
     padding:0;
     margin:0;
     box-sizing:border-box;
-    transition: all 0.3s ease-out;
+    /* transition: all 0.1s ease-out; */
   }
 
   html{

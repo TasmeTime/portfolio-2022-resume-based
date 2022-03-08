@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 interface HeroLinkProps {
   Text: string;
   Icon: IconType;
-
+  Delay?: number;
   Color?: string;
   BgColor?: string;
   IconBgColor?: string;
@@ -79,32 +79,37 @@ const TextHolder = styled(motion.span)`
   }
 `;
 
+const Animations = {
+  fadeInFromRight: {
+    inital: {
+      opacity: 0,
+      // scale: 0,
+      x: 50,
+    },
+    animate: {
+      opacity: 1,
+      // scale: 1,
+      x: 0,
+    },
+  },
+};
+
 export default function HeroLink(props: HeroLinkProps) {
-  const { Text, Icon, Color, BgColor, IconBgColor, IconColor } = props;
+  const { Text, Icon, Delay, Color, BgColor, IconBgColor, IconColor } = props;
+  console.log(Delay ? Delay + 1 : 1);
   return (
     <HeroLinkEl
       color={Color}
       bgcolor={BgColor}
-      transition={{ duration: 0.5 }}
-      initial={{
-        opacity: 0,
-        y: 50,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-      }}
+      variants={Animations.fadeInFromRight}
+      transition={{ duration: 0.7, delay: Delay ? Delay + 1 : 1 }}
+      initial="inital"
+      animate="animate"
     >
       <IconHolder color={IconColor} bgcolor={IconBgColor}>
         <Icon />
       </IconHolder>
-      <TextHolder
-        exit={{ left: -200 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        {Text}
-      </TextHolder>
+      <TextHolder>{Text}</TextHolder>
     </HeroLinkEl>
   );
 }

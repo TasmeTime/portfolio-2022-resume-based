@@ -71,11 +71,11 @@ const LeftSection = styled.div`
     text-align: left;
   }
 `;
-const Before = styled.h3`
+const Before = styled(motion.h3)`
   font-size: 4vw;
   color: ${Colors.White};
 `;
-const Name = styled.h1`
+const Name = styled(motion.h1)`
   font-size: 15vw;
   color: ${Colors.Primary};
   @media ${Devices.MobileL} {
@@ -117,32 +117,75 @@ const LinksContainer = styled.div`
   }
 `;
 
+const Animations = {
+  fadeInFromBottom: {
+    inital: {
+      opacity: 0,
+      y: 50,
+    },
+    animate: { opacity: 1, y: 0 },
+  },
+};
+
 export default function Hero() {
   return (
     <HeroEl>
       <TopContainer>
         <LeftSection>
-          <Before>{HeroData.Before}</Before>
-          <Name>{HeroData.Name}</Name>
-          <After>{HeroData.After}</After>
+          <Before
+            variants={Animations.fadeInFromBottom}
+            initial="inital"
+            animate="animate"
+            transition={{
+              duration: 1,
+              delay: 0.1,
+              type: "tween",
+            }}
+          >
+            {HeroData.Before}
+          </Before>
+          <Name
+            variants={Animations.fadeInFromBottom}
+            initial="inital"
+            animate="animate"
+            transition={{
+              duration: 1,
+              delay: 0.3,
+              type: "tween",
+            }}
+          >
+            {HeroData.Name}
+          </Name>
+          <After
+            variants={Animations.fadeInFromBottom}
+            initial="inital"
+            animate="animate"
+            transition={{
+              duration: 1,
+              delay: 0.6,
+              type: "tween",
+            }}
+          >
+            {HeroData.After}
+          </After>
         </LeftSection>
-        <ImageContainer src={PortraitIms} alt="my portrait" />
+        <ImageContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.3, type: "tween" }}
+          src={PortraitIms}
+          alt="my portrait"
+        />
       </TopContainer>
       <LinksContainer>
-        {/* <HeroLink Text="m-azad.ir" Icon={FaGlobeAsia} /> */}
         <a target="_blank" rel="nofollow" href="https://github.com/TasmeTime">
-          <HeroLink Text="tasmetime" Icon={FaGithubAlt} />
+          <HeroLink Text="tasmetime" Delay={0.3} Icon={FaGithubAlt} />
         </a>
         <a target="_blank" rel="nofollow" href="mailto:info@m-azad.ir">
-          <HeroLink Text="info@m-azad.ir" Icon={MdAlternateEmail} />
+          <HeroLink Text="info@m-azad.ir" Delay={0.6} Icon={MdAlternateEmail} />
         </a>
         <a target="_blank" rel="nofollow" href="https://youtube.com/TasmeTime">
-          <HeroLink
-            Text="tasmetime"
-            Icon={FiYoutube}
-            // IconBgColor={Colors.Red}
-            // BgColor={Colors.RedHighlight}
-          />
+          <HeroLink Text="tasmetime" Delay={0.9} Icon={FiYoutube} />
         </a>
       </LinksContainer>
     </HeroEl>
