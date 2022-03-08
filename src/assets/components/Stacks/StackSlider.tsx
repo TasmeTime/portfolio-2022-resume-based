@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 import styled from "styled-components";
 import { SiNextdotjs } from "react-icons/si";
 import StackSliderItem, { StackSliderItemProps } from "./StackSliderItem";
-import { Devices } from "../../Theme";
+import { Colors, Devices } from "../../Theme";
 
 interface StackSliderProps {
   Title: string;
@@ -15,6 +15,15 @@ const StackSliderEl = styled.article`
 const TitleEl = styled.h3`
   margin-left: 2rem;
   font-size: 7vw;
+
+  background: -webkit-linear-gradient(
+    left,
+    ${Colors.Gradient.G1[0]},
+    ${Colors.Gradient.G1[1]}
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
   @media ${Devices.Laptop} {
     font-size: 5vw;
   }

@@ -21,8 +21,8 @@ const StackSliderItemEl = styled.div`
   min-width: 30vw;
   min-height: 30vw;
   gap: 1vh;
-  color: ${Colors.Gray};
-  background-color: ${Colors.PrimaryBg};
+  color: ${Colors.Secondary};
+  background-color: ${Colors.Primary};
   border-radius: 10px;
   font-size: 15vw;
   border: 1px solid ${Colors.StackSliderItemBorder};

@@ -1,17 +1,22 @@
 export const Colors = {
   Primary: "#4280FF",
-  PrimaryBg: "#F3F7FF ",
+  Secondary: "#E6DCF5",
+  PrimaryBg: "#E6F5FB ",
   PrimaryDark: "#3C6DD4",
   PrimaryBorder: "#6E9EFF",
   PrimaryFade: "rgba(255,255,255,.1)",
   White: "#FFFFFF",
-  Black: "#232323",
+  Black: "#2A2A2A",
   Red: "#FF0000",
-  Gray: "#707070",
+  Gray: "#676767",
+  GrayBG: "#3D3D3D",
   GrayFade: "#F8F8F8",
   GrayDes: "#D4DFF4",
   RedHighlight: "#FF6767",
   StackSliderItemBorder: "rgba(112,112,112,.1)",
+  Gradient: {
+    G1: ["#E6F5FB", "#E6DCF5"],
+  },
 };
 
 const BreakPoints = {

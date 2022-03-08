@@ -16,7 +16,7 @@ const AppEl = styled.div`
   overflow-y: auto;
   position: relative;
   gap: 1rem;
-  background-color: ${Colors.White};
+  background-color: ${Colors.Black};
 `;
 
 function App() {

@@ -23,15 +23,19 @@ const HeroLinkEl = styled(motion.span)<{
   color?: string;
 }>`
   color: ${(p) => (p.color ? p.color : Colors.White)};
-  background-color: ${(p) => (p.bgcolor ? p.bgcolor : Colors.Primary)};
+  background-color: ${(p) => (p.bgcolor ? p.bgcolor : Colors.GrayBG)};
   border-radius: 5px;
   display: flex;
   align-items: center;
-  gap: 0.2rem;
-  padding-right: 0.25rem;
+  gap: 0.7rem;
+  flex-wrap: nowrap;
+
+  @media ${Devices.Tablet} {
+    padding-right: 0.7rem;
+  }
 
   @media ${Devices.Laptop} {
-    grid-template: 0.5rem;
+    gap: 0.5rem;
   }
 `;
 
@@ -40,22 +44,35 @@ const IconHolder = styled.span<{
   color?: string;
 }>`
   display: flex;
-  font-size: 2.5vw;
+  font-size: 6.5vw;
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
   border-radius: 5px;
-  color: ${(p) => (p.color ? p.color : Colors.White)};
-  background-color: ${(p) => (p.bgcolor ? p.bgcolor : Colors.PrimaryDark)};
+  color: ${(p) => (p.color ? p.color : Colors.Black)};
+  background-color: ${(p) => (p.bgcolor ? p.bgcolor : Colors.Secondary)};
+
+  @media ${Devices.Tablet} {
+    border-radius: 5px 0 0 5px;
+    font-size: 3vw;
+    padding: 0.7rem;
+  }
+
+  @media ${Devices.Laptop} {
+    font-size: 2.3vw;
+  }
 `;
 
 const TextHolder = styled(motion.span)`
   font-size: 3vw;
-  /* display: none; */
+  display: none;
+  white-space: nowrap;
   @media ${Devices.MobileL} {
-    display: inline-block;
     font-size: 2.7vw;
+  }
+  @media ${Devices.Tablet} {
+    display: inline-block;
   }
   @media ${Devices.Laptop} {
     font-size: 2.3vw;

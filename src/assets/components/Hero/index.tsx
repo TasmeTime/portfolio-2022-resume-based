@@ -12,38 +12,48 @@ import { motion } from "framer-motion";
 const HeroEl = styled(motion.article)`
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
   justify-content: center;
   gap: 3rem;
   align-items: center;
-  background-color: ${Colors.PrimaryBg};
+  background-color: ${Colors.Black};
   padding: 2rem 1rem;
   border-radius: 0 0 0 5rem;
-  border-left: 0.5rem solid ${Colors.PrimaryBorder};
-  border-bottom: 0.5rem solid ${Colors.PrimaryBorder};
 
   @media ${Devices.MobileL} {
-    border-left-width: 0.7rem;
-    border-bottom-width: 0.7rem;
-    padding: 2rem 2rem;
+    border-left-width: 0.3rem;
+    border-bottom-width: 0.3rem;
     border-radius: 0 0 0 7rem;
   }
 
   @media ${Devices.Tablet} {
+    justify-content: flex-start;
     border-left-width: 1rem;
     border-bottom-width: 1rem;
-    padding: 3rem 5rem;
     border-radius: 0 0 0 15rem;
+  }
+  @media ${Devices.Laptop} {
+    min-height: 100vh;
+    justify-content: center;
+    gap: 3rem;
+  }
+  @media ${Devices.LaptopL} {
+    gap: 4rem;
   }
 `;
 
 const TopContainer = styled.div`
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
+
   gap: 1rem;
   width: 100%;
+  @media ${Devices.Tablet} {
+    flex-direction: row;
+    align-items: center;
+  }
   @media ${Devices.Laptop} {
     gap: 2rem;
   }
@@ -54,19 +64,22 @@ const TopContainer = styled.div`
 `;
 const LeftSection = styled.div`
   display: flex;
-
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+  @media ${Devices.Tablet} {
+    text-align: left;
+  }
 `;
 const Before = styled.h3`
   font-size: 4vw;
-  color: ${Colors.Gray};
+  color: ${Colors.White};
 `;
 const Name = styled.h1`
-  font-size: 12vw;
+  font-size: 15vw;
   color: ${Colors.Primary};
   @media ${Devices.MobileL} {
-    font-size: 11vw;
+    font-size: 13vw;
   }
 
   @media ${Devices.Tablet} {
@@ -75,21 +88,32 @@ const Name = styled.h1`
 `;
 const After = styled(Before)``;
 const ImageContainer = styled(motion.img)`
-  width: 30%;
+  width: 70%;
   min-width: 120px;
+
+  @media ${Devices.Tablet} {
+    width: 30%;
+    min-width: 120px;
+  }
 `;
 const LinksContainer = styled.div`
   display: flex;
   width: 100%;
-  justify-content: flex-end;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 1rem;
 
   a {
     text-decoration: none;
   }
 
+  @media ${Devices.Tablet} {
+    /* width: 30%; */
+    /* min-width: 120px; */
+  }
+
   @media ${Devices.Laptop} {
-    gap: 4rem;
+    /* justify-content: flex-end; */
+    gap: 3rem;
   }
 `;
 
@@ -116,8 +140,8 @@ export default function Hero() {
           <HeroLink
             Text="tasmetime"
             Icon={FiYoutube}
-            IconBgColor={Colors.Red}
-            BgColor={Colors.RedHighlight}
+            // IconBgColor={Colors.Red}
+            // BgColor={Colors.RedHighlight}
           />
         </a>
       </LinksContainer>
