@@ -96,7 +96,7 @@ const Animations = {
 
 export default function HeroLink(props: HeroLinkProps) {
   const { Text, Icon, Delay, Color, BgColor, IconBgColor, IconColor } = props;
-  console.log(Delay ? Delay + 1 : 1);
+
   return (
     <HeroLinkEl
       color={Color}

@@ -101,8 +101,6 @@ export default function StackSlider(props: StackSliderProps) {
 
   const Scroll = (dir: "left" | "right", amount: number): void => {
     if (ItemsHolderRef.current) {
-      console.log(dir, amount);
-
       if (dir === "left") {
         ItemsHolderRef.current.scroll({
           left: ItemsHolderRef.current.scrollLeft - amount,
