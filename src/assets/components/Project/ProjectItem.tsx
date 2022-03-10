@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { fadeInFromBottom, strechY } from "../../Animations";
 import { Colors, Devices } from "../../Theme";
+import { AiOutlineLink } from "react-icons/ai";
 export interface ProjectItemProps {
   Id: number;
   Title: string;
@@ -37,6 +39,8 @@ const TitleHolder = styled.div`
 `;
 
 const LinkEl = styled(motion.a)`
+  display: flex;
+  align-items: center;
   @media ${Devices.Tablet} {
     font-size: 2.5vw;
   }
@@ -45,6 +49,12 @@ const LinkEl = styled(motion.a)`
   }
   text-decoration: none;
   font-size: 3vw;
+
+  :hover {
+    transition: outline 0.2s ease;
+    outline: 2px solid ${Colors.White};
+    border-radius: 5px;
+  }
 `;
 const DesEl = styled(motion.p)`
   @media ${Devices.Tablet} {
@@ -66,67 +76,40 @@ const TitleEl = styled(motion.h5)`
   font-size: 3.7vw;
 `;
 
-const Animations = {
-  ind: {
-    init: {
-      height: 0,
-    },
-    onVis: {
-      height: "100%",
-    },
-  },
-  fadeInFromBottom: {
-    init: {
-      y: 50,
-      opacity: 0,
-    },
-    onVis: {
-      y: 0,
-      opacity: 1,
-    },
-  },
-};
-
 export default function ProjectItem(props: ProjectItemProps) {
   const { Id, Title, Des, Link } = props;
 
   return (
     <ProjectItemEl>
-      <Ind
-        variants={Animations.ind}
-        initial="init"
-        transition={{ duration: 1, type: "tween" }}
-        whileInView="onVis"
-      />
+      <Ind {...strechY({ transition: { duration: 1, type: "tween" } })} />
       <InfoHolder>
         {Link ? (
           <TitleHolder>
             <TitleEl
-              variants={Animations.fadeInFromBottom}
-              initial="init"
-              transition={{ duration: 0.25, delay: 0.25 }}
-              whileInView="onVis"
+              {...fadeInFromBottom({
+                transition: { duration: 0.25, delay: 0.25 },
+              })}
             >
               {Title}
             </TitleEl>
             <LinkEl
-              href=""
-              variants={Animations.fadeInFromBottom}
-              initial="init"
-              transition={{ delay: 0.25 }}
-              whileInView="onVis"
+              target="_blank"
+              href={Link}
+              {...fadeInFromBottom({
+                transition: { delay: 0.25 },
+              })}
             >
-              ({Link})
+              <AiOutlineLink />
+              {/* {Link} */}
             </LinkEl>
           </TitleHolder>
         ) : (
           <TitleEl>{Title}</TitleEl>
         )}
         <DesEl
-          variants={Animations.fadeInFromBottom}
-          initial="init"
-          transition={{ duration: 0.25 }}
-          whileInView="onVis"
+          {...fadeInFromBottom({
+            transition: { duration: 0.25 },
+          })}
         >
           {Des}
         </DesEl>

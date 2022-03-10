@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { IconType } from "react-icons";
 import styled from "styled-components";
+import { fadeInFromBottom, fadeInFromLeft } from "../../Animations";
 import { Colors, Devices } from "../../Theme";
 export interface StackSliderItemProps {
   Id: number;
@@ -63,10 +64,7 @@ export default function StackSliderItem(props: StackSliderItemProps) {
   const { Id, Title, Icon, Color, BgColor, IconSize } = props;
   return (
     <StackSliderItemEl
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      viewport={{ once: false }}
-      transition={{ duration: 0.7, type: "tween" }}
+      {...fadeInFromBottom({ transition: { duration: 0.7, type: "tween" } })}
     >
       <Icon />
       <TitleEl>{Title}</TitleEl>

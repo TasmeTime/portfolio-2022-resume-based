@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { fadeInFromBottom } from "../../../Animations";
 import { Colors, Devices } from "../../../Theme";
 
 export interface StyledListItemProps {
@@ -103,25 +104,11 @@ export default function StyledListItem(props: StyledListItemProps) {
   return (
     <StyledListItemEl>
       <TitleHolder>
-        <Ind
-          variants={Animations.fadeInFromBottom}
-          initial="init"
-          whileInView="onVis"
-        />
-        <TitleEl
-          variants={Animations.fadeInFromBottom}
-          initial="init"
-          transition={{ delay: 0.25 }}
-          whileInView="onVis"
-        >
+        <Ind {...fadeInFromBottom({})} />
+        <TitleEl {...fadeInFromBottom({ transition: { delay: 0.25 } })}>
           {Title}
         </TitleEl>
-        <DateHolder
-          variants={Animations.fadeInFromBottom}
-          initial="init"
-          transition={{ delay: 0.35 }}
-          whileInView="onVis"
-        >
+        <DateHolder {...fadeInFromBottom({ transition: { delay: 0.35 } })}>
           {From ? <span>{From?.getFullYear()}</span> : ""}-
           {TillPresent ? (
             <span>Presents</span>
@@ -131,21 +118,11 @@ export default function StyledListItem(props: StyledListItemProps) {
         </DateHolder>
       </TitleHolder>
       <Info>
-        <SubTitleEl
-          variants={Animations.fadeInFromBottom}
-          initial="init"
-          transition={{ delay: 0.35 }}
-          whileInView="onVis"
-        >
+        <SubTitleEl {...fadeInFromBottom({ transition: { delay: 0.25 } })}>
           {SubTitle}
         </SubTitleEl>
         {Des ? (
-          <DesEl
-            variants={Animations.fadeInFromBottom}
-            initial="init"
-            transition={{ delay: 0.35 }}
-            whileInView="onVis"
-          >
+          <DesEl {...fadeInFromBottom({ transition: { delay: 0.25 } })}>
             {Des}
           </DesEl>
         ) : (

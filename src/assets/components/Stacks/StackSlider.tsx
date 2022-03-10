@@ -6,6 +6,7 @@ import { Colors, Devices } from "../../Theme";
 import { motion } from "framer-motion";
 import { BsChevronLeft, BsCaretLeft, BsCaretRight } from "react-icons/bs";
 import { useRef, useState } from "react";
+import { fadeInFromLeft, fadeInFromRight } from "../../Animations";
 
 interface StackSliderProps {
   Title: string;
@@ -119,20 +120,16 @@ export default function StackSlider(props: StackSliderProps) {
     <StackSliderEl>
       <TopSection>
         <TitleEl
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -50 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.7, type: "tween" }}
+          {...fadeInFromLeft({ transition: { duration: 0.7, type: "tween" } })}
         >
           {Title}
         </TitleEl>
         <SliderControll>
           <LArrow
             ind={ScrollInd}
-            whileInView={{ opacity: 1, x: 0 }}
-            initial={{ opacity: 0, x: 50 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.7, type: "tween" }}
+            {...fadeInFromRight({
+              transition: { duration: 0.7, type: "tween" },
+            })}
             onClick={() => {
               Scroll("left", 200);
             }}
@@ -140,11 +137,10 @@ export default function StackSlider(props: StackSliderProps) {
             <BsCaretLeft />
           </LArrow>
           <RArrow
+            {...fadeInFromRight({
+              transition: { duration: 0.7, delay: 0.3, type: "tween" },
+            })}
             ind={ScrollInd}
-            whileInView={{ opacity: 1, x: 0 }}
-            initial={{ opacity: 0, x: 50 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.7, delay: 0.3, type: "tween" }}
             onClick={() => {
               Scroll("right", 200);
             }}

@@ -8,6 +8,7 @@ import { HeroData } from "../../Data";
 import PortraitIms from "../../images/portrait.png";
 import { Colors, Devices } from "../../Theme";
 import { motion } from "framer-motion";
+import { fadeIn, fadeInFromBottom } from "../../Animations";
 
 const HeroEl = styled(motion.article)`
   display: flex;
@@ -117,62 +118,49 @@ const LinksContainer = styled.div`
   }
 `;
 
-const Animations = {
-  fadeInFromBottom: {
-    inital: {
-      opacity: 0,
-      y: 50,
-    },
-    animate: { opacity: 1, y: 0 },
-  },
-};
-
 export default function Hero() {
   return (
     <HeroEl>
       <TopContainer>
         <LeftSection>
           <Before
-            variants={Animations.fadeInFromBottom}
-            initial="inital"
-            animate="animate"
-            transition={{
-              duration: 1,
-              delay: 0.1,
-              type: "tween",
-            }}
+            {...fadeInFromBottom({
+              transition: {
+                duration: 1,
+                delay: 0.1,
+                type: "tween",
+              },
+            })}
           >
             {HeroData.Before}
           </Before>
           <Name
-            variants={Animations.fadeInFromBottom}
-            initial="inital"
-            animate="animate"
-            transition={{
-              duration: 1,
-              delay: 0.3,
-              type: "tween",
-            }}
+            {...fadeInFromBottom({
+              transition: {
+                duration: 1,
+                delay: 0.3,
+                type: "tween",
+              },
+            })}
           >
             {HeroData.Name}
           </Name>
           <After
-            variants={Animations.fadeInFromBottom}
-            initial="inital"
-            animate="animate"
-            transition={{
-              duration: 1,
-              delay: 0.6,
-              type: "tween",
-            }}
+            {...fadeInFromBottom({
+              transition: {
+                duration: 1,
+                delay: 0.6,
+                type: "tween",
+              },
+            })}
           >
             {HeroData.After}
           </After>
         </LeftSection>
         <ImageContainer
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.3, type: "tween" }}
+          {...fadeIn({
+            transition: { duration: 0.7, delay: 0.3, type: "tween" },
+          })}
           src={PortraitIms}
           alt="my portrait"
         />

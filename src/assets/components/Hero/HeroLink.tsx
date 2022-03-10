@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { IconType } from "react-icons";
 import { Colors, Devices } from "../../Theme";
 import { motion } from "framer-motion";
+import { fadeInFromBottom } from "../../Animations";
 
 interface HeroLinkProps {
   Text: string;
@@ -99,12 +100,11 @@ export default function HeroLink(props: HeroLinkProps) {
 
   return (
     <HeroLinkEl
+      {...fadeInFromBottom({
+        transition: { duration: 0.7, delay: Delay ? Delay + 1 : 1 },
+      })}
       color={Color}
       bgcolor={BgColor}
-      variants={Animations.fadeInFromRight}
-      transition={{ duration: 0.7, delay: Delay ? Delay + 1 : 1 }}
-      initial="inital"
-      animate="animate"
     >
       <IconHolder color={IconColor} bgcolor={IconBgColor}>
         <Icon />

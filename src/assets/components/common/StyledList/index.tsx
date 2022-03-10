@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { customStrechX, fadeInFromRight } from "../../../Animations";
 import { Colors } from "../../../Theme";
 import { WaterMark, WaterMarkProps } from "../Watermark";
 import StyledListItem, { StyledListItemProps } from "./StyledListItem";
@@ -79,17 +80,16 @@ export default function StyledList(props: StyledListProps) {
         {Watermark ? <WaterMark {...WMProps}>{Watermark}</WaterMark> : ""}
 
         <Ind
-          variants={Animations.ind}
-          initial="init"
-          transition={{ duration: 0.75, type: "tween" }}
-          whileInView="onVis"
+          {...customStrechX({
+            to: "2rem",
+            transition: { duration: 0.75, type: "tween" },
+          })}
           indRight={IndPos === "right"}
         />
         <TitleEl
-          variants={Animations.title}
-          initial="init"
-          transition={{ duration: 0.75, type: "tween" }}
-          whileInView="onVis"
+          {...fadeInFromRight({
+            transition: { duration: 0.75, type: "tween" },
+          })}
           indRight={IndPos === "right"}
         >
           {Title}

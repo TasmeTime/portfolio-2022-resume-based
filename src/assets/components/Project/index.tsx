@@ -1,5 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import styled from "styled-components";
+import { fadeInFromBottom } from "../../Animations";
 import { AllProjects } from "../../Data";
 import { Colors, Devices } from "../../Theme";
 import { WaterMark } from "../common/Watermark";
@@ -54,19 +55,6 @@ const ProjectsHolder = styled.div`
   }
 `;
 
-const Animations = {
-  title: {
-    inital: {
-      opacity: 0,
-      y: 100,
-    },
-    onVis: {
-      opacity: 1,
-      y: 0,
-    },
-  },
-};
-
 export default function Projects() {
   return (
     <ProjectsEl>
@@ -74,10 +62,7 @@ export default function Projects() {
         Projects
       </WaterMark>
       <TitleEl
-        variants={Animations.title}
-        transition={{ duration: 1, type: "tween" }}
-        whileInView="onVis"
-        initial="inital"
+        {...fadeInFromBottom({ transition: { duration: 1, type: "tween" } })}
       >
         Projects
       </TitleEl>

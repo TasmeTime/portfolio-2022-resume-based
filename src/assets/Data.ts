@@ -31,46 +31,40 @@ export const HeroData: HeroProps = {
 
 export const AllProjects: Array<ProjectItemProps> = [
   {
+    Id: 3,
+    Title: "Crypto.com NFT Marketplace (educational clone)",
+    Des: "Crypto.com NFT NFT Marketplace UI using NextJs and Styled-components",
+    Link: "https://cryptocom.m-azad.ir/",
+  },
+  {
+    Id: 4,
+    Title: "Responsive Animated Photo Stock UI",
+    Des: "Responsive and Animated Minimalistic Photo Stock using React and styled-component",
+    Link: "https://photostock.m-azad.ir/",
+  },
+  {
+    Id: 5,
+    Title: "Landify Landing Page",
+    Des: "UI Implementation Landify Landing Page using React and Styled-Components",
+    Link: "https://landify.m-azad.ir/",
+  },
+  {
+    Id: 6,
+    Title: "NFT Marketplace",
+    Des: "Modern and minimalistic NFT Marketplace UI Implementation",
+    Link: "https://nftmarkerplace.m-azad.ir/",
+  },
+  {
     Id: 1,
     Title: "AkSeller",
     Des: "CRM, Seller Dashboard, Admin Panel, and exclusive build-in shop",
-    Link: "akseller.ir",
+    Link: "https://akseller.ir",
   },
   {
     Id: 2,
     Title: "View360",
     Des: "Online showcase of properties in 360 tours",
-    Link: "view360.ir",
-  },
-  {
-    Id: 3,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-  {
-    Id: 4,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-  {
-    Id: 5,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-  {
-    Id: 6,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
-  },
-  {
-    Id: 7,
-    Title: "NFT Marketplace UI Implementation",
-    Des: "UI Implementation of NFT Marketplace using React and Styled-Components",
-    Link: "crypto.com",
+    Link: "https://view360.ir",
   },
 ];
 
