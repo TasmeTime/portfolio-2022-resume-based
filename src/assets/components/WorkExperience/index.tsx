@@ -1,4 +1,5 @@
 import { WEList } from "../../Data";
+import { Colors } from "../../Theme";
 import StyledList from "../common/StyledList";
 
 export default function WorkExperience() {
@@ -9,6 +10,7 @@ export default function WorkExperience() {
       WMProps={{
         right: "-30%",
         bottom: "0",
+        color: Colors.WaterMarkColorDark,
       }}
       Items={WEList}
       IndPos="right"

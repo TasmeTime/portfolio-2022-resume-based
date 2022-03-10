@@ -11,6 +11,7 @@ export const Colors = {
   Gray: "#676767",
   GrayBG: "#3D3D3D",
   GrayFade: "#F8F8F8",
+  WaterMarkColorDark: "#f8f8f805",
   GrayDes: "#D4DFF4",
   RedHighlight: "#FF6767",
   StackSliderItemBorder: "rgba(112,112,112,.1)",

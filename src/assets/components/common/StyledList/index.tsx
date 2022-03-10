@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Colors } from "../../../Theme";
 import { WaterMark, WaterMarkProps } from "../Watermark";
@@ -23,7 +24,7 @@ const StyledListEl = styled.article`
   padding: 5vw 2rem 2rem 2rem;
   gap: 1rem;
 `;
-const Ind = styled.span<{ indRight?: boolean }>`
+const Ind = styled(motion.span)<{ indRight?: boolean }>`
   position: absolute;
   ${(p) => (p.indRight ? "right:0;" : "left:0;")}
   top: 5.5vw;
@@ -33,7 +34,7 @@ const Ind = styled.span<{ indRight?: boolean }>`
   background-color: ${Colors.Primary};
   z-index: 1;
 `;
-const TitleEl = styled.h3<{ indRight?: boolean }>`
+const TitleEl = styled(motion.h3)<{ indRight?: boolean }>`
   color: ${Colors.Primary};
   z-index: 1;
   font-size: 5vw;
@@ -48,6 +49,27 @@ const ItemsHolder = styled.ul`
   gap: 1rem;
 `;
 
+const Animations = {
+  ind: {
+    init: {
+      width: 0,
+    },
+    onVis: {
+      width: "2rem",
+    },
+  },
+  title: {
+    init: {
+      x: 50,
+      opacity: 0,
+    },
+    onVis: {
+      x: 0,
+      opacity: 1,
+    },
+  },
+};
+
 export default function StyledList(props: StyledListProps) {
   const { Title, Items, IndPos, Watermark, WMProps } = props;
 
@@ -56,8 +78,22 @@ export default function StyledList(props: StyledListProps) {
       <StyledListEl>
         {Watermark ? <WaterMark {...WMProps}>{Watermark}</WaterMark> : ""}
 
-        <Ind indRight={IndPos === "right"} />
-        <TitleEl indRight={IndPos === "right"}>{Title}</TitleEl>
+        <Ind
+          variants={Animations.ind}
+          initial="init"
+          transition={{ duration: 0.75, type: "tween" }}
+          whileInView="onVis"
+          indRight={IndPos === "right"}
+        />
+        <TitleEl
+          variants={Animations.title}
+          initial="init"
+          transition={{ duration: 0.75, type: "tween" }}
+          whileInView="onVis"
+          indRight={IndPos === "right"}
+        >
+          {Title}
+        </TitleEl>
         <ItemsHolder>
           {Items.map((item) => {
             return <StyledListItem key={item.Id} {...item} />;
