@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Colors, Devices } from "../../Theme";
 export interface ProjectItemProps {
@@ -13,7 +14,7 @@ const ProjectItemEl = styled.article`
   gap: 2vw;
   color: ${Colors.White};
 `;
-const Ind = styled.span`
+const Ind = styled(motion.span)`
   @media ${Devices.Laptop} {
     width: 5vw;
   }
@@ -35,7 +36,7 @@ const TitleHolder = styled.div`
   gap: 0.5rem;
 `;
 
-const LinkEl = styled.a`
+const LinkEl = styled(motion.a)`
   @media ${Devices.Tablet} {
     font-size: 2.5vw;
   }
@@ -45,7 +46,7 @@ const LinkEl = styled.a`
   text-decoration: none;
   font-size: 3vw;
 `;
-const DesEl = styled.p`
+const DesEl = styled(motion.p)`
   @media ${Devices.Tablet} {
     font-size: 2.2vw;
   }
@@ -55,7 +56,7 @@ const DesEl = styled.p`
   color: ${Colors.GrayDes};
   font-size: 3vw;
 `;
-const TitleEl = styled.h5`
+const TitleEl = styled(motion.h5)`
   @media ${Devices.Tablet} {
     font-size: 3vw;
   }
@@ -64,22 +65,71 @@ const TitleEl = styled.h5`
   }
   font-size: 3.7vw;
 `;
+
+const Animations = {
+  ind: {
+    init: {
+      height: 0,
+    },
+    onVis: {
+      height: "100%",
+    },
+  },
+  fadeInFromBottom: {
+    init: {
+      y: 50,
+      opacity: 0,
+    },
+    onVis: {
+      y: 0,
+      opacity: 1,
+    },
+  },
+};
+
 export default function ProjectItem(props: ProjectItemProps) {
   const { Id, Title, Des, Link } = props;
 
   return (
     <ProjectItemEl>
-      <Ind />
+      <Ind
+        variants={Animations.ind}
+        initial="init"
+        transition={{ duration: 1, type: "tween" }}
+        whileInView="onVis"
+      />
       <InfoHolder>
         {Link ? (
           <TitleHolder>
-            <TitleEl>{Title}</TitleEl>
-            <LinkEl href="">({Link})</LinkEl>
+            <TitleEl
+              variants={Animations.fadeInFromBottom}
+              initial="init"
+              transition={{ duration: 0.25, delay: 0.25 }}
+              whileInView="onVis"
+            >
+              {Title}
+            </TitleEl>
+            <LinkEl
+              href=""
+              variants={Animations.fadeInFromBottom}
+              initial="init"
+              transition={{ delay: 0.25 }}
+              whileInView="onVis"
+            >
+              ({Link})
+            </LinkEl>
           </TitleHolder>
         ) : (
           <TitleEl>{Title}</TitleEl>
         )}
-        <DesEl>{Des}</DesEl>
+        <DesEl
+          variants={Animations.fadeInFromBottom}
+          initial="init"
+          transition={{ duration: 0.25 }}
+          whileInView="onVis"
+        >
+          {Des}
+        </DesEl>
       </InfoHolder>
     </ProjectItemEl>
   );

@@ -1,3 +1,4 @@
+import { motion, Variants } from "framer-motion";
 import styled from "styled-components";
 import { AllProjects } from "../../Data";
 import { Colors, Devices } from "../../Theme";
@@ -14,7 +15,7 @@ const ProjectsEl = styled.article`
   display: flex;
   overflow-x: hidden;
   overflow-y: hidden;
-  margin-top: 2rem;
+  margin-top: 5rem;
   position: relative;
   z-index: 1;
   height: fit-content;
@@ -25,9 +26,13 @@ const ProjectsEl = styled.article`
     width: 90%;
     border-radius: 0 65px 65px 0;
   }
+
+  @media ${Devices.LaptopL} {
+    min-height: 650px;
+  }
 `;
 
-const TitleEl = styled.h3`
+const TitleEl = styled(motion.h3)`
   font-size: 5vw;
   z-index: 1;
   writing-mode: vertical-rl;
@@ -49,13 +54,33 @@ const ProjectsHolder = styled.div`
   }
 `;
 
+const Animations = {
+  title: {
+    inital: {
+      opacity: 0,
+      y: 100,
+    },
+    onVis: {
+      opacity: 1,
+      y: 0,
+    },
+  },
+};
+
 export default function Projects() {
   return (
     <ProjectsEl>
       <WaterMark bottom="0" color={Colors.PrimaryFade} right="-30%">
         Projects
       </WaterMark>
-      <TitleEl>Projects</TitleEl>
+      <TitleEl
+        variants={Animations.title}
+        transition={{ duration: 1, type: "tween" }}
+        whileInView="onVis"
+        initial="inital"
+      >
+        Projects
+      </TitleEl>
       <ProjectsHolder>
         {AllProjects.map((p) => {
           return (
